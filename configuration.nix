@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -43,8 +43,6 @@
     LC_TELEPHONE = "en_AU.UTF-8";
     LC_TIME = "en_AU.UTF-8";
   };
-
-  environment.variables.EDITOR = "nvim";
 
   # Configure keymap in X11
   services.xserver = {
@@ -87,14 +85,14 @@
   # Install firefox.
   programs.firefox.enable = true;
   
-  users.users.benm.shell = pkgs.zsh;
-  programs.zsh = {
-      enable = true;
-      ohMyZsh = {
-          enable = true;
-          theme = "robbyrussell";
-      };
-  };
+ users.users.benm.shell = pkgs.zsh;
+ programs.zsh.enable = true;
+#      enable = true;
+#      ohMyZsh = {
+#          enable = true;
+#          theme = "robbyrussell";
+#      };
+#  };
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
