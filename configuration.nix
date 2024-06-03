@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
       ./modules/gui.nix
     ];
 
@@ -85,7 +86,16 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
+  
+  users.users.benm.shell = pkgs.zsh;
+  programs.zsh = {
+      enable = true;
+      ohMyZsh = {
+          enable = true;
+          theme = "robbyrussell";
+      };
+  };
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -98,7 +108,6 @@
     discord
     vscode
     gcc
-    oh-my-posh
     gh
   ];
 
@@ -107,8 +116,16 @@
   	(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+        "benm" = import ./home.nix;
+    };
+  };
 
- 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
