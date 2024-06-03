@@ -5,7 +5,13 @@
       enable = true;
       oh-my-zsh = {
           enable = true;
-          theme = "alanpeabody";
+          theme = "af-magic";
       };
+  };
+
+  programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd cd"];
   };
 }
