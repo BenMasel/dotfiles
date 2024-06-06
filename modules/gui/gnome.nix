@@ -14,6 +14,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-dock
     gnomeExtensions.rounded-window-corners
+    gnomeExtensions.just-perfection
   ];
 
   # Excluding GNOME Applications

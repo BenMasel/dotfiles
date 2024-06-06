@@ -77,10 +77,7 @@
   dconf.settings."org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  wayland.windowManager.hyprland = {
-      # allow home-manager to configure hyprland
-      enable = true;
-  };
+  hyprlandHM.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
