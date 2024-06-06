@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+   # stylix.url = "github:danth/stylix";
+
+    # hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -16,6 +20,7 @@
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
+        # inputs.stylix.nixosModules.stylix
       ];
     };
   };

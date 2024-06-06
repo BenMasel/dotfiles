@@ -13,7 +13,7 @@
     gnome.gnome-tweaks
     gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-dock
-    elementary-xfce-icon-theme
+    gnomeExtensions.rounded-window-corners
   ];
 
   # Excluding GNOME Applications
@@ -21,11 +21,15 @@
 	# for packages that are pkgs.***
   	gnome-tour
   	gnome-connections
-    xterm
   ]) ++ (with pkgs.gnome; [
  	# for packages that are pkgs.gnome.***
   	epiphany # web browser
   	geary # email reader
   	evince # document viewer
+    gnome-contacts # contacts
+    simple-scan # document scanner
   ]);
+
+  # Excluding X Applications
+  services.xserver.excludePackages = [ pkgs.xterm ];
 }

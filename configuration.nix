@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      ./modules/gui.nix
+      ./modules/gui/default.nix
     ];
 
   # Bootloader.
@@ -87,12 +87,6 @@
   
  users.users.benm.shell = pkgs.zsh;
  programs.zsh.enable = true;
-#      enable = true;
-#      ohMyZsh = {
-#          enable = true;
-#          theme = "robbyrussell";
-#      };
-#  };
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -107,6 +101,8 @@
     vscode
     gcc
     gh
+    kitty
+    spotify
   ];
 
   #!! Fonts
@@ -123,6 +119,14 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+#  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  
+  # OR
+  
+  # Don't forget to apply wallpaper
+  
+ #  stylix.image = ./assets/d2.jpg;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
