@@ -7,11 +7,12 @@
     inputs.ags.homeManagerModules.default
   ];
 
+  home.packages = with pkgs; [
+    bun
+  ];
+
   programs.ags = {
     enable = true;
-    configDir = ../ags;
-    # extraPackages = with pkgs; [
-    #   accountsservice
-    # ];
+    # ags is at ~/.config/ags because idk how to get configDir working
   };
 }

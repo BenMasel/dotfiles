@@ -45,9 +45,9 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "au";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -81,9 +81,6 @@
     #  thunderbird
     ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
   
  users.users.benm.shell = pkgs.zsh;
  programs.zsh.enable = true;
@@ -117,6 +114,7 @@
         "benm" = import ./home.nix;
     };
   };
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
